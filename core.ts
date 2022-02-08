@@ -1,4 +1,9 @@
-import { blue, Bot, serve, webhookCallback } from "./deps.ts";
+import {
+  blue,
+  Bot,
+  serve,
+  webhookCallback,
+} from "./deps.ts";
 import "./config.ts";
 import env from "./config.ts";
 import delta from "./delta/mod.ts";
@@ -8,9 +13,7 @@ export const handle = webhookCallback(bot, "std/http");
 
 const initializer = async () => {
   await console.log(blue("[INFO]"), `bot is starting on ${env["HOST"]}`);
-  if (Deno.env.get("MODE") !== "NOFS") {
-    await delta(bot);
-  }
+  await delta(bot);
 };
 
 const webhook = async () => {
