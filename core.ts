@@ -1,4 +1,4 @@
-import { blue, Bot, red, serve, webhookCallback } from "./deps.ts";
+import { blue, Bot, serve, webhookCallback } from "./deps.ts";
 import "./config.ts";
 import env from "./config.ts";
 import delta from "./delta/mod.ts";
@@ -35,7 +35,6 @@ const webhook = async () => {
       default:
         return Response.redirect("https://t.me/xinuxuz", 302);
     }
-    // return Response.redirect("https://t.me/xinuxuz", 302);
   });
 };
 
