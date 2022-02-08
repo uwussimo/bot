@@ -35,6 +35,8 @@ const webhook = async () => {
     }
 
     switch (url.pathname) {
+      case "/spotify":
+        return new Response(req.url);
       case "/webhook":
         try {
           await bot.api.setWebhook(`https://${url.hostname}/bot`);
