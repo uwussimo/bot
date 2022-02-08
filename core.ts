@@ -21,6 +21,7 @@ const webhook = async () => {
   await serve(async (req) => {
     if (req.method == "POST") {
       try {
+        await console.log(blue("[MSG]"), `request was made by a client`);
         return await handle(req);
       } catch (err) {
         console.error(err);
