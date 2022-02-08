@@ -26,8 +26,8 @@ const webhook = async () => {
             return new Response("Nope, not working...");
           }
         case "/github":
-          console.log(await req.blob())
-          return new Response(await req.blob())
+          console.log(await req.body)
+          return new Response(await req.body)
         default:
           return new Response("What you're trying to post?")
       }
