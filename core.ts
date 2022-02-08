@@ -28,7 +28,7 @@ const webhook = async () => {
         return new Response();
       }
     }
-
+    await console.log(req.url)
     return Response.redirect("https://t.me/xinuxuz", 302);
   });
 };
