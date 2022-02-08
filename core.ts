@@ -28,8 +28,20 @@ const webhook = async () => {
         return new Response();
       }
     }
-    await console.log(req.url)
+    const url = new URL(req.url)
+
+    console.log(url.hostname, url.href, url.pathname)
+
+    // switch (url) {
+    //   case "https://uwussibot.deno.dev/":
+    //
+    //     return new Response("Done. Set")
+    //   default:
+    //     return Response.redirect("https://t.me/xinuxuz", 302);
+    // }
+
     return Response.redirect("https://t.me/xinuxuz", 302);
+
   });
 };
 
