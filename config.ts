@@ -1,4 +1,4 @@
-import { config } from "https://deno.land/x/dotenv@v3.1.0/mod.ts";
+import { config } from "./deps.ts";
 
 const inits = () => {
   if (Deno.env.get("MODE") === "NOFS") {
