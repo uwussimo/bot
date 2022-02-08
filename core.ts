@@ -14,20 +14,29 @@ const initializer = async () => {
 const webhook = async () => {
   await console.log(blue("[INFO]"), `bot is starting on ${env["HOST"]}`);
   await serve(async (req) => {
+    const url = new URL(req.url);
+
     if (req.method == "POST") {
-      try {
-        return await handle(req);
-      } catch (err) {
-        console.error(err);
-        return new Response();
+      switch (url.pathname) {
+        case "/bot":
+          try {
+            return await handle(req);
+          } catch (err) {
+            console.error(err);
+            return new Response("Nope, not working...");
+          }
+        case "/github":
+          return new Response(req.body)
+        default:
+          return new Response("What you're trying to post?")
       }
+
     }
 
-    const url = new URL(req.url);
     switch (url.pathname) {
       case "/webhook":
         try {
-          await bot.api.setWebhook(`https://${url.hostname}/`);
+          await bot.api.setWebhook(`https://${url.hostname}/bot`);
           return new Response("Done. Set");
         } catch (_) {
           return new Response("Couldn't succeed with installing webhook");
