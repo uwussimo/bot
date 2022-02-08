@@ -1,9 +1,4 @@
-import {
-  blue,
-  Bot,
-  serve,
-  webhookCallback,
-} from "./deps.ts";
+import { blue, Bot, red, serve, webhookCallback } from "./deps.ts";
 import "./config.ts";
 import env from "./config.ts";
 import delta from "./delta/mod.ts";
@@ -28,20 +23,20 @@ const webhook = async () => {
         return new Response();
       }
     }
-    const url = new URL(req.url)
 
-    console.log(url.hostname, url.href, url.pathname)
-
-    // switch (url) {
-    //   case "https://uwussibot.deno.dev/":
-    //
-    //     return new Response("Done. Set")
-    //   default:
-    //     return Response.redirect("https://t.me/xinuxuz", 302);
-    // }
-
-    return Response.redirect("https://t.me/xinuxuz", 302);
-
+    const url = new URL(req.url);
+    switch (url.pathname) {
+      case "/webhook":
+        try {
+          await bot.api.setWebhook(`https://${url.hostname}/`);
+          return new Response("Done. Set");
+        } catch (_) {
+          return new Response("Couldn't succeed with installing webhook");
+        }
+      default:
+        return Response.redirect("https://t.me/xinuxuz", 302);
+    }
+    // return Response.redirect("https://t.me/xinuxuz", 302);
   });
 };
 
