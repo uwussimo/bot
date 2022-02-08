@@ -14,3 +14,4 @@ export {
   red,
   yellow,
 } from "https://deno.land/std@0.125.0/fmt/colors.ts";
+export { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts"
