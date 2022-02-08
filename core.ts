@@ -1,8 +1,6 @@
 import {
   blue,
   Bot,
-  Composer,
-  Context,
   serve,
   webhookCallback,
 } from "./deps.ts";
