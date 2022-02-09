@@ -3,6 +3,7 @@ export {
   Composer,
   Context,
   InlineKeyboard,
+  InputFile,
   webhookCallback,
 } from "https://deno.land/x/grammy@v1.7.0/mod.ts";
 export { serve } from "https://deno.land/std@0.125.0/http/server.ts";
