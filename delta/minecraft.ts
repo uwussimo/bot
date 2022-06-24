@@ -29,14 +29,25 @@ composer.command("mc", async (ctx: Context): Promise<void> => {
     await fetch("https://uwussi.moe/api/minecraft").then(
       async (r: Response) => {
         const json: Minecraft = await r.json();
-        await ctx.replyWithPhoto(
-          new InputFile({ url: json.icon }),
-          {
-            caption: message(json),
-            parse_mode: "HTML",
-            reply_markup: keyboard(),
-          },
-        );
+
+        if (json.online) {
+          await ctx.replyWithPhoto(
+            new InputFile({ url: json.icon }),
+            {
+              caption: message(json),
+              parse_mode: "HTML",
+              reply_markup: keyboard(),
+            },
+          );
+        } else {
+          await ctx.reply(
+            "<b>Woah, seems like I'm facing some issues 😢.</b>" + "\n" +
+              "I don't remember myself installing php, python or apache in my server 🧐",
+            {
+              parse_mode: "HTML",
+            },
+          );
+        }
       },
     );
   } catch (_) {
