@@ -19,16 +19,7 @@ const webhook = async () => {
     if (req.method == "POST") {
       switch (url.pathname) {
         case "/bot":
-          try {
-            return await handle(req);
-          } catch (err) {
-            console.error(err);
-            return new Response("Nope, not working...");
-          }
-        case "/github":
-          const resp = await req.json();
-          console.log(resp);
-          return new Response(resp);
+          return await handle(req);
         default:
           return new Response("What you're trying to post?");
       }
@@ -45,7 +36,7 @@ const webhook = async () => {
           return new Response("Couldn't succeed with installing webhook");
         }
       default:
-        return Response.redirect("https://t.me/xinuxuz", 302);
+        return Response.redirect("https://t.me/uwublog", 302);
     }
   });
 };

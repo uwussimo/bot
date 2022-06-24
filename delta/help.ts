@@ -7,7 +7,11 @@ export const message = `<b>Available commands:</b>` +
   `\n` +
   `\n` +
   `/help - <code>show this message</code>` +
-  `\n`;
+  `\n` +
+  `/stacks - <code>stackoverflow profile</code>` +
+  `\n` +
+    `/mc - <code>minecraft server</code>` +
+    `\n`;
 
 export const keyboard = start.keyboard;
 
