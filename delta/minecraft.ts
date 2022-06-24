@@ -15,7 +15,7 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `<b>➿ Software:</b> ${data.software} ${data.version}` +
   `\n` +
-  `<b>📝 Message:</b> <code>${data.motd}</code>`;
+  `<b>📝 Message:</b> <code>${data.motd.clean}</code>`;
 
 export const keyboard = () =>
   new InlineKeyboard()
