@@ -23,7 +23,7 @@ export const keyboard = () =>
 
 composer.command("mc", async (ctx: Context): Promise<void> => {
   try {
-    await fetch("https://uwussi.moe/minecraft").then(async (r: Response) => {
+    await fetch("https://uwussi.moe/api/minecraft").then(async (r: Response) => {
       const json: Minecraft = await r.json();
       await ctx.replyWithPhoto(
         new InputFile({ url: json.icon }),

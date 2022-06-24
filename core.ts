@@ -36,7 +36,7 @@ const webhook = async () => {
           return new Response("Couldn't succeed with installing webhook");
         }
       default:
-        return Response.redirect("https://t.me/uwublog", 302);
+        return Response.redirect("https://t.me/uwussibot", 302);
     }
   });
 };
