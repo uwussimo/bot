@@ -19,21 +19,26 @@ export const message = (data: Minecraft): string =>
 
 export const keyboard = () =>
   new InlineKeyboard()
-    .url("Website", `https://uwussi.moe/minecraft`);
+    .url("Website", `https://uwussi.moe/minecraft`).url(
+      "Repository",
+      `https://github.com/uwussimo/minecraft`,
+    );
 
 composer.command("mc", async (ctx: Context): Promise<void> => {
   try {
-    await fetch("https://uwussi.moe/api/minecraft").then(async (r: Response) => {
-      const json: Minecraft = await r.json();
-      await ctx.replyWithPhoto(
-        new InputFile({ url: json.icon }),
-        {
-          caption: message(json),
-          parse_mode: "HTML",
-          reply_markup: keyboard(),
-        },
-      );
-    });
+    await fetch("https://uwussi.moe/api/minecraft").then(
+      async (r: Response) => {
+        const json: Minecraft = await r.json();
+        await ctx.replyWithPhoto(
+          new InputFile({ url: json.icon }),
+          {
+            caption: message(json),
+            parse_mode: "HTML",
+            reply_markup: keyboard(),
+          },
+        );
+      },
+    );
   } catch (_) {
     await ctx.reply(
       "<b>Woah,</b> seems like I'm facing some issues 😢.",

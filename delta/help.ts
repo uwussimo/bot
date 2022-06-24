@@ -10,8 +10,8 @@ export const message = `<b>Available commands:</b>` +
   `\n` +
   `/stacks - <code>stackoverflow profile</code>` +
   `\n` +
-    `/mc - <code>minecraft server</code>` +
-    `\n`;
+  `/mc - <code>minecraft server</code>` +
+  `\n`;
 
 export const keyboard = start.keyboard;
 
