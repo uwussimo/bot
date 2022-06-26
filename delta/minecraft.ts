@@ -4,7 +4,7 @@ import { Composer, Context, InlineKeyboard, InputFile } from "../deps.ts";
 const composer = new Composer();
 
 export const message = (data: Minecraft): string =>
-  `<b>Stackoverflow Stats!</b>` +
+  `<b>Server Stats!</b>` +
   `\n` +
   `\n` +
   `<b>🚨️ Online:</b> ${data.status ? "Yup" : "Nah"}` +
