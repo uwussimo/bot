@@ -11,7 +11,7 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `<b>👥 Players:</b> <code>${data.content.players.online}/${data.content.players.max}</code>` +
   `\n` +
-  `<b>🦡 Address:</b> owo.uwussi.moe:25565` +
+  `<b>🎛 Address:</b> owo.uwussi.moe:25565` +
   `\n` +
   `<b>➿ Software:</b> Vanilla ${data.content.version.name} => ${data.content.version.protocol}`;
 
