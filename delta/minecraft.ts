@@ -9,7 +9,7 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `<b>🚨️ Online:</b> ${data.status ? "Yup" : "Nah"}` +
   `\n` +
-  `<b>👥 Players:</b> <code>${data.content.players.max}/${data.content.players.max}</code>` +
+  `<b>👥 Players:</b> <code>${data.content.players.online}/${data.content.players.max}</code>` +
   `\n` +
   `<b>🦡 Address:</b> owo.uwussi.moe:25565` +
   `\n` +
