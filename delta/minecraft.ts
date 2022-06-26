@@ -13,9 +13,7 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `<b>🦡 Address:</b> owo.uwussi.moe:25565` +
   `\n` +
-  `<b>➿ Software:</b> Vanilla ${data.content.version.name} => ${data.content.version.protocol}` +
-  `\n` +
-  `<b>📝 Message:</b> <code>${data.content.motd.clean.replaceAll("\n", ", ")}</code>`;
+  `<b>➿ Software:</b> Vanilla ${data.content.version.name} => ${data.content.version.protocol}`;
 
 export const keyboard = () =>
   new InlineKeyboard()
