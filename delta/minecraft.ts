@@ -19,6 +19,7 @@ export const message = (data: Minecraft): string =>
 
 export const keyboard = () =>
   new InlineKeyboard()
+    .text("Refresh", "mc").row()
     .url("Website", `https://uwussi.moe/minecraft`).url(
       "Repository",
       `https://github.com/uwussimo/minecraft`,
@@ -54,6 +55,41 @@ composer.command("mc", async (ctx: Context): Promise<void> => {
       "<b>Woah, seems like I'm facing some issues 😢.</b>" + "\n" +
         "I don't remember myself installing php, python or apache in my server 🧐",
       {
+        parse_mode: "HTML",
+      },
+    );
+  }
+});
+
+composer.callbackQuery(/^mc$/, async (ctx: Context): Promise<void> => {
+  try {
+    await fetch("https://uwussi.moe/api/minecraft").then(
+      async (r: Response) => {
+        const json: Minecraft = await r.json();
+
+        if (json.status) {
+          await ctx.editMessageCaption(
+            {
+              caption: message(json),
+              parse_mode: "HTML",
+              reply_markup: keyboard(),
+            },
+          );
+        } else {
+          await ctx.reply(
+            "<b>Woah, seems like server went offline 😢.</b>",
+            {
+              parse_mode: "HTML",
+            },
+          );
+        }
+      },
+    );
+  } catch (_) {
+    await ctx.editMessageCaption(
+      {
+        caption: "<b>Woah, seems like I'm facing some issues 😢.</b>" + "\n" +
+          "I don't remember myself installing php, python or apache in my server 🧐",
         parse_mode: "HTML",
       },
     );
