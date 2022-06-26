@@ -1,18 +1,18 @@
-import type {Response as Minecraft, User} from "../types/minecraft.d.ts";
+import type { Response as Minecraft, User } from "../types/minecraft.d.ts";
 import { Composer, Context, InlineKeyboard, InputFile } from "../deps.ts";
 
 const composer = new Composer();
 
 const listPlayers = (data: Minecraft): string => {
-    let base = ""
-    if (data.content.players.sample) {
-        data.content.players.sample.map(u => {
-            base += `* ${u.name}\n`
-        })
-    } else {
-        return ""
-    }
-}
+  let base = "";
+  if (data.content.players.sample) {
+    data.content.players.sample.map((u) => {
+      base += `* ${u.name}\n`;
+    });
+  } else {
+    return "";
+  }
+};
 
 export const message = (data: Minecraft): string =>
   `<b>Stackoverflow Stats!</b>` +
@@ -26,7 +26,8 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `<b>➿ Software:</b> Vanilla ${data.content.version.name} => ${data.content.version.protocol}` +
   `\n` +
-  `<b>📝 Message:</b> <code>${data.content.motd.clean}</code>` + `\n` + `\n` + listPlayers(data);
+  `<b>📝 Message:</b> <code>${data.content.motd.clean}</code>` + `\n` + `\n` +
+  listPlayers(data);
 
 export const keyboard = () =>
   new InlineKeyboard()
@@ -35,6 +36,10 @@ export const keyboard = () =>
       "Repository",
       `https://github.com/uwussimo/minecraft`,
     );
+
+export const errorKeyboard = () =>
+  new InlineKeyboard()
+    .text("Refresh", "mc");
 
 composer.command("mc", async (ctx: Context): Promise<void> => {
   try {
@@ -56,6 +61,7 @@ composer.command("mc", async (ctx: Context): Promise<void> => {
             "<b>Woah, seems like server went offline 😢.</b>",
             {
               parse_mode: "HTML",
+              reply_markup: errorKeyboard(),
             },
           );
         }
@@ -67,6 +73,7 @@ composer.command("mc", async (ctx: Context): Promise<void> => {
         "I don't remember myself installing php, python or apache in my server 🧐",
       {
         parse_mode: "HTML",
+        reply_markup: errorKeyboard(),
       },
     );
   }
@@ -91,6 +98,7 @@ composer.callbackQuery(/^mc$/, async (ctx: Context): Promise<void> => {
             "<b>Woah, seems like server went offline 😢.</b>",
             {
               parse_mode: "HTML",
+              reply_markup: errorKeyboard(),
             },
           );
         }
@@ -102,6 +110,7 @@ composer.callbackQuery(/^mc$/, async (ctx: Context): Promise<void> => {
         caption: "<b>Woah, seems like I'm facing some issues 😢.</b>" + "\n" +
           "I don't remember myself installing php, python or apache in my server 🧐",
         parse_mode: "HTML",
+        reply_markup: errorKeyboard(),
       },
     );
   }
