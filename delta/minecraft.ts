@@ -7,15 +7,15 @@ export const message = (data: Minecraft): string =>
   `<b>Stackoverflow Stats!</b>` +
   `\n` +
   `\n` +
-  `<b>🚨️ Online:</b> ${data.online ? "Yup" : "Nah"}` +
+  `<b>🚨️ Online:</b> ${data.status ? "Yup" : "Nah"}` +
   `\n` +
-  `<b>👥 Players:</b> <code>${data.players.online}/${data.players.max}</code>` +
+  `<b>👥 Players:</b> <code>${data.content.players.max}/${data.content.players.max}</code>` +
   `\n` +
-  `<b>🦡 Address:</b> ${data.hostname}:${data.port}` +
+  `<b>🦡 Address:</b> owo.uwussi.moe:25565` +
   `\n` +
-  `<b>➿ Software:</b> ${data.software} ${data.version}` +
+  `<b>➿ Software:</b> Vanilla ${data.content.version.name} => ${data.content.version.protocol}` +
   `\n` +
-  `<b>📝 Message:</b> <code>${data.motd.clean}</code>`;
+  `<b>📝 Message:</b> <code>${data.content.motd.clean}</code>`;
 
 export const keyboard = () =>
   new InlineKeyboard()
@@ -30,9 +30,9 @@ composer.command("mc", async (ctx: Context): Promise<void> => {
       async (r: Response) => {
         const json: Minecraft = await r.json();
 
-        if (json.online) {
+        if (json.status) {
           await ctx.replyWithPhoto(
-            new InputFile({ url: json.icon }),
+            new InputFile({ url: json.content.favicon }),
             {
               caption: message(json),
               parse_mode: "HTML",
@@ -41,8 +41,7 @@ composer.command("mc", async (ctx: Context): Promise<void> => {
           );
         } else {
           await ctx.reply(
-            "<b>Woah, seems like I'm facing some issues 😢.</b>" + "\n" +
-              "I don't remember myself installing php, python or apache in my server 🧐",
+            "<b>Woah, seems like server went offline 😢.</b>",
             {
               parse_mode: "HTML",
             },
@@ -52,7 +51,8 @@ composer.command("mc", async (ctx: Context): Promise<void> => {
     );
   } catch (_) {
     await ctx.reply(
-      "<b>Woah,</b> seems like I'm facing some issues 😢.",
+      "<b>Woah, seems like I'm facing some issues 😢.</b>" + "\n" +
+        "I don't remember myself installing php, python or apache in my server 🧐",
       {
         parse_mode: "HTML",
       },
