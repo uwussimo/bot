@@ -1,7 +1,18 @@
-import type { Response as Minecraft } from "../types/minecraft.d.ts";
+import type {Response as Minecraft, User} from "../types/minecraft.d.ts";
 import { Composer, Context, InlineKeyboard, InputFile } from "../deps.ts";
 
 const composer = new Composer();
+
+const listPlayers = (data: Minecraft): string => {
+    let base = ""
+    if (data.content.players.sample) {
+        data.content.players.sample.map(u => {
+            base += `* ${u.name}\n`
+        })
+    } else {
+        return ""
+    }
+}
 
 export const message = (data: Minecraft): string =>
   `<b>Stackoverflow Stats!</b>` +
@@ -15,7 +26,7 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `<b>➿ Software:</b> Vanilla ${data.content.version.name} => ${data.content.version.protocol}` +
   `\n` +
-  `<b>📝 Message:</b> <code>${data.content.motd.clean}</code>`;
+  `<b>📝 Message:</b> <code>${data.content.motd.clean}</code>` + `\n` + `\n` + listPlayers(data);
 
 export const keyboard = () =>
   new InlineKeyboard()
