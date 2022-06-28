@@ -17,8 +17,8 @@ export const message = (data: Minecraft): string =>
 
 export const keyboard = () =>
   new InlineKeyboard()
+    .url("Web (Live)", `https://uwussi.moe/minecraft`).row()
     .url("Discord", "https://discord.gg/7etE3wZ7RA")
-    .url("Web (Live)", `https://uwussi.moe/minecraft`)
     .url("Repository", `https://github.com/uwussimo/minecraft`);
 
 composer.command("mc", async (ctx: Context) => {
