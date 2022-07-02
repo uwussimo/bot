@@ -18,7 +18,7 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `${
     data.content.players.sample
-      ? data.content.players.sample.map((user) => user.name).join("\n")
+      ? data.content.players.sample.map((user) => `👾 ${user.name}`).join("\n")
       : ""
   }`;
 
