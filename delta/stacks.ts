@@ -29,7 +29,7 @@ export const message = (data: User): string =>
 
 export const keyboard = (data: User) =>
   new InlineKeyboard()
-    .url("Profile", data.link);
+    .url("👤 Profile", data.link);
 
 composer.command("stacks", async (ctx: Context): Promise<void> => {
   try {
