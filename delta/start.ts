@@ -8,8 +8,8 @@ export const message: string = `<b>Welcome to my assistant bot!</b> \n` +
   `Also, this bot will serve for me as a shortcut and automation.`;
 
 export const keyboard = new InlineKeyboard()
-  .url("Blog", "https://t.me/uwublog")
-  .url("Website", "https://uwussi.moe");
+  .url("✍🏻 Blog", "https://t.me/uwublog")
+  .url("🌐 Website", "https://uwussi.moe");
 
 composer.command("start", async (ctx: Context): Promise<void> => {
   await ctx.reply(message, {
