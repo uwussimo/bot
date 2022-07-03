@@ -4,6 +4,7 @@ import help from "./help.ts";
 import stacks from "./stacks.ts";
 import minecraft from "./minecraft.ts";
 import socials from "./socials.ts";
+import rules from "./rules.ts";
 
 export default async (bot: Bot) => {
   await bot.use(start);
@@ -11,4 +12,5 @@ export default async (bot: Bot) => {
   await bot.use(stacks);
   await bot.use(minecraft);
   await bot.use(socials);
+  await bot.use(rules)
 };
