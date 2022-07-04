@@ -27,6 +27,7 @@ export const keyboard = () =>
   new InlineKeyboard()
     .text("🔁 Refresh", "mc")
     .url("🔴 Web (Live)", `https://uwussi.moe/minecraft`).row()
+    .url("📝 Rules of the server", `https://uwussi.moe/minecraft/rules`).row()
     .url("👾 Discord", "https://discord.gg/7etE3wZ7RA")
     .url("🌐 Repository", `https://github.com/uwussimo/minecraft`);
 
