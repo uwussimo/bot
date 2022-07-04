@@ -12,5 +12,5 @@ export default async (bot: Bot) => {
   await bot.use(stacks);
   await bot.use(minecraft);
   await bot.use(socials);
-  await bot.use(rules)
+  await bot.use(rules);
 };

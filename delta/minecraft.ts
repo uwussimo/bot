@@ -18,7 +18,8 @@ export const message = (data: Minecraft): string =>
   `\n` +
   `${
     data.content.players.sample
-      ? data.content.players.sample.map((user) => `👾 <code>${user.name}</code>`).join("\n")
+      ? data.content.players.sample.map((user) => `👾 <code>${user.name}</code>`)
+        .join("\n")
       : ""
   }`;
 
@@ -37,7 +38,10 @@ composer.command("mc", async (ctx: Context) => {
 
         if (json.status) {
           await ctx.replyWithPhoto(
-            new InputFile({ url: json.content.favicon }),
+            new InputFile({
+              url:
+                "https://raw.githubusercontent.com/uwussimo/website/main/public/favicons/uwucraft.png",
+            }),
             {
               caption: message(json),
               parse_mode: "HTML",
