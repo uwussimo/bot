@@ -8,3 +8,7 @@ leaving the telegram messenger
 * `/help` - show list of commands
 * `/stacks` - show my stackoverflow
 * `/mc` - show my minecrafts status
+
+# Deploying
+
+Simply used Deno Deploy to host my telegram bot.
