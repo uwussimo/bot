@@ -5,6 +5,6 @@ leaving the telegram messenger
 
 # Commands
 
-`/help` - show list of commands
-`/stacks` - show my stackoverflow
-`/mc` - show my minecrafts status
+* `/help` - show list of commands
+* `/stacks` - show my stackoverflow
+* `/mc` - show my minecrafts status
