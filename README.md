@@ -11,4 +11,4 @@ leaving the telegram messenger
 
 # Deploying
 
-Simply used Deno Deploy to host my telegram bot.
+Simply used [Deno Deploy](https://deno.com) to host my telegram bot.
