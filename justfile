@@ -17,8 +17,12 @@ lint:
 format:
 	deno fmt --config deno.json
 
-build:
+docker-build:
 	docker build -t ghcr.io/uwussimo/uwubot:latest .
 
-push:
+docker-push:
 	docker push ghcr.io/uwussimo/uwubot:latest
+
+docker:
+	just docker-build
+	just docker-push
