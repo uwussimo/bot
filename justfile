@@ -19,3 +19,6 @@ format:
 
 build:
 	docker build -t ghcr.io/uwussimo/uwubot:latest .
+
+push:
+	docker push ghcr.io/uwussimo/uwubot:latest
