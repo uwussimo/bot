@@ -18,4 +18,4 @@ format:
 	deno fmt --config deno.json
 
 build:
-	docker build -t uwubot .
+	docker build -t ghcr.io/uwussimo/uwubot:latest .

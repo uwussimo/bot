@@ -11,4 +11,12 @@ leaving the telegram messenger
 
 # Deploying
 
+## Deno Deploy
+
 Simply used [Deno Deploy](https://deno.com) to host my telegram bot.
+
+## Docker
+
+```shell
+docker run ghcr.io/uwussimo/uwubot:latest -e TOKEN=<YOUR TG TOKEN>
+```
