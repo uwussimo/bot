@@ -18,5 +18,5 @@ Simply used [Deno Deploy](https://deno.com) to host my telegram bot.
 ## Docker
 
 ```shell
-docker run ghcr.io/uwussimo/uwubot:latest -e TOKEN=<YOUR TG TOKEN>
+docker run -e TOKEN=<YOUR TG TOKEN> ghcr.io/uwussimo/uwubot:latest
 ```
