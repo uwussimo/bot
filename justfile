@@ -16,3 +16,6 @@ lint:
 
 format:
 	deno fmt --config deno.json
+
+build:
+	docker build -t uwubot .
